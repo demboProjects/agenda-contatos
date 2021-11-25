@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { createContactController } from "../controller/createContact";
 import { listContactsController } from "../controller/listContacts";
-import { updateContactController } from "../controller/updateContact"
+import { updateContactController } from "../controller/updateContact";
+import { deleteContactController } from "../controller/deleteContact";
 
 
 const contactRoutes = Router();
@@ -16,6 +17,11 @@ contactRoutes.get("/", (request, response) => {
 
 contactRoutes.put("/:id", (request, response) => {
     updateContactController.handle(request, response);
+});
+
+contactRoutes.delete("/:id", (request, response) => {
+
+    deleteContactController.handle(request, response);
 });
 
 

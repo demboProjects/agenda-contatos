@@ -37,7 +37,11 @@ class ContactRepositories implements IContactRepositories {
     }
 
     delete(id: string): void {
-        throw new Error("Method not implemented.");
+
+        const contactIndex = this.contacts.findIndex(contact => contact.id === id);
+
+        this.contacts.splice(contactIndex, 1);
+
     }
 
     create({ name, email, phone }: IcreateContactsTDO): void {
