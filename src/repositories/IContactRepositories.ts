@@ -4,6 +4,7 @@ interface IcreateContactsTDO {
     name: string
     phone: string
     email: string
+    update_at?: string
 }
 
 interface IContactRepositories {
