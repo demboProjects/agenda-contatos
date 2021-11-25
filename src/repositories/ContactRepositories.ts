@@ -47,7 +47,8 @@ class ContactRepositories implements IContactRepositories {
             name,
             phone,
             email,
-            created_at: new Date()
+            created_at: new Date(),
+            updated_at: ""
         });
 
         this.contacts.push(newContact);

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateContactService } from "../service/CreateContactService"
+import { CreateContactService } from "../../service/CreateContactService"
 
 type Irequest = {
     name: string

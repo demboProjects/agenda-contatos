@@ -1,5 +1,5 @@
-import { ContactRepositories } from "../repositories/ContactRepositories";
-import { CreateContactService } from "../service/CreateContactService";
+import { ContactRepositories } from "../../repositories/ContactRepositories";
+import { CreateContactService } from "../../service/CreateContactService";
 import { CreateContactController } from "./CreateContactController";
 
 
