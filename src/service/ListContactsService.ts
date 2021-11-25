@@ -8,7 +8,7 @@ class ListContactsService {
 
     execute(): Contact[] {
 
-        const contacts = this.contactRepositories.list();
+        const contacts = this.contactRepositories.find();
 
         return contacts;
     }

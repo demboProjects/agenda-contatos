@@ -12,6 +12,15 @@ class ContactRepositories implements IContactRepositories {
         this.contacts = [];
     }
 
+    findOne(id: string): Contact {
+        const contact = this.contacts.find(contact => contact.id === id);
+
+        if (!contact) {
+            throw new Error("contact not found");
+        }
+        return contact
+    }
+
     public static getInstance(): ContactRepositories {
 
         if (!ContactRepositories.INSTACE) {
@@ -21,7 +30,7 @@ class ContactRepositories implements IContactRepositories {
         return ContactRepositories.INSTACE;
     }
 
-    list(): Contact[] {
+    find(): Contact[] {
 
         return this.contacts
     }

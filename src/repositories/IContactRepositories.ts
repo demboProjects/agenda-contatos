@@ -9,7 +9,8 @@ interface IcreateContactsTDO {
 
 interface IContactRepositories {
     create({ name, email, phone }: IcreateContactsTDO): void
-    list(): Contact[]
+    find(): Contact[]
+    findOne(id: string): Contact
     update(id: string, contact: IcreateContactsTDO): string
     delete(id: string): void
 
