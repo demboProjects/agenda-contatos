@@ -11,13 +11,13 @@ class CreateContactController {
 
     constructor(private createContacService: CreateContactService) { }
 
-    handle(request: Request, response: Response): Response {
+    async handle(request: Request, response: Response): Promise<Response> {
 
         const { name, phone, email } = request.body;
 
-        this.createContacService.execute({ name, phone, email });
+        const contact_id = await this.createContacService.execute({ name, phone, email });
 
-        return response.sendStatus(201);
+        return response.status(201).json({ id: contact_id });
     }
 }
 

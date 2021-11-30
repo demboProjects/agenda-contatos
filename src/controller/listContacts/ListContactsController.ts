@@ -7,8 +7,8 @@ class ListContactsController {
 
     constructor(private listContactsService: ListContactsService) { }
 
-    handle(request: Request, response: Response): Response {
-        const contacts = this.listContactsService.execute();
+    async handle(request: Request, response: Response): Promise<Response> {
+        const contacts = await this.listContactsService.execute();
 
         return response.status(200).json(contacts);
     }

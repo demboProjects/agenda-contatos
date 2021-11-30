@@ -1,4 +1,5 @@
-import { IContactRepositories, IcreateContactsTDO } from "../repositories/IContactRepositories"
+import { IContactRepositories, IcreateContactsTDO } from "../repositories/IContactRepositories";
+import { IContactDatabaseRepositories } from "../repositories/IContactDatabaseRepositories"
 
 interface Irequest {
     name: string
@@ -9,12 +10,14 @@ interface Irequest {
 
 class CreateContactService {
 
-    constructor(private contactRepositories: IContactRepositories) {
+    constructor(private contactRepositories: IContactRepositories | IContactDatabaseRepositories) {
 
     }
 
-    execute({ email, name, phone }: Irequest) {
-        this.contactRepositories.create({ name, email, phone });
+    async execute({ email, name, phone }: Irequest): Promise<string> {
+        const id = await this.contactRepositories.create({ name, email, phone });
+
+        return id!;
     }
 }
 

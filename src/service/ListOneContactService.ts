@@ -1,14 +1,15 @@
 import { Contact } from "../model/Contact";
+import { IContactDatabaseRepositories } from "../repositories/IContactDatabaseRepositories";
 import { IContactRepositories } from "../repositories/IContactRepositories";
 
 
 class ListOneContactService {
 
-    constructor(private contactRepository: IContactRepositories) { }
+    constructor(private contactRepository: IContactRepositories | IContactDatabaseRepositories) { }
 
-    execute(id: string): Contact {
+    async execute(id: string): Promise<Contact> {
 
-        const service = this.contactRepository.findOne(id);
+        const service = await this.contactRepository.findOne(id);
 
         return service;
     }

@@ -1,11 +1,12 @@
+import { ContactDatabaseRepository } from "../repositories/ContactDatabaseRepositories";
 import { IContactRepositories } from "../repositories/IContactRepositories";
 
 class DeleteContactService {
 
-    constructor(private contactRepositories: IContactRepositories) { }
+    constructor(private contactRepositories: IContactRepositories | ContactDatabaseRepository) { }
 
-    execute(id: string): void {
-        this.contactRepositories.delete(id);
+    async execute(id: string): Promise<void> {
+        await this.contactRepositories.delete(id);
     }
 
 }

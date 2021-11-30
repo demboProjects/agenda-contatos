@@ -6,10 +6,10 @@ class DeleteContactController {
 
     constructor(private deleteContactService: DeleteContactService) { }
 
-    handle(request: Request, response: Response): Response {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { id } = request.params;
 
-        this.deleteContactService.execute(id);
+        await this.deleteContactService.execute(id);
 
         return response.sendStatus(204);
     }

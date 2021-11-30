@@ -7,11 +7,11 @@ class ListOneContactController {
 
     constructor(private listOnecontactService: ListOneContactService) { }
 
-    handle(request: Request, response: Response): Response {
+    async handle(request: Request, response: Response): Promise<Response> {
 
         const { id } = request.params
 
-        const contact = this.listOnecontactService.execute(id);
+        const contact = await this.listOnecontactService.execute(id);
 
         return response.status(200).json(contact);
 
